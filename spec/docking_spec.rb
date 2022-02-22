@@ -14,6 +14,12 @@ describe DockingStation do
   end
   it 'Can I dock the bike?' do
     bike = Bike.new
-    expect(subject.dock_bike(bike)).to eq true
+    expect(subject).to respond_to("dock_bike")
+  end
+
+  it 'are there bikes there?' do
+    bike_1 = Bike.new
+    subject.dock_bike(bike_1)
+    expect(subject.docked_bikes).to eq [bike_1]
   end
 end
