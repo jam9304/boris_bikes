@@ -5,7 +5,11 @@ class DockingStation
       @docked_bikes = bikes
     end  
     def release_bike
-        bike = Bike.new
+        if @docked_bikes.empty? 
+            fail("There are no bikes to take out")
+        else
+            @docked_bikes.pop
+        end
     end
     def dock_bike(bike)
         true

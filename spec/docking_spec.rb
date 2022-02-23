@@ -5,11 +5,13 @@ describe DockingStation do
     expect(subject).to respond_to('release_bike')
  end
 
- it 'get bike?' do
-   expect(subject.release_bike).to be_an_instance_of(Bike)
+ it 'get bike if dock is empty?' do
+   expect{subject.release_bike}.to raise_error("There are no bikes to take out")
  end
 
   it 'is the bike working?' do
+    bike = Bike.new
+    subject.dock_bike(bike)
     expect(subject.release_bike.working?).to eq true
   end
   it 'Can I dock the bike?' do
