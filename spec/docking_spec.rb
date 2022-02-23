@@ -32,8 +32,11 @@ describe DockingStation do
     expect(subject.docked_bikes).to eq [bike_1]
   end
   
-  it 'test the capacity' do
-    expect(subject.capacity).to eq 20
-  end
+  describe 'changing capacity on initialization' do
+    docking_station = DockingStation.new([],25)
+      it 'test the new capacity' do
+        expect(docking_station.capacity).to eq 25
+      end
+    end
   
 end
