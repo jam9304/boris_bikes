@@ -14,6 +14,9 @@ class DockingStation
         if empty? 
             fail("There are no bikes to take out")
         else
+            # goodbikes = @docked_bikes.select do |bikes|
+            #   bikes[true]
+            # end
             @docked_bikes.pop
         end
     end
@@ -41,3 +44,4 @@ class Bike
         true
     end
 end
+

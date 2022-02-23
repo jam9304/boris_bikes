@@ -31,12 +31,15 @@ describe DockingStation do
     subject.dock_bike(bike_1)
     expect(subject.docked_bikes).to eq [bike_1]
   end
-  
-  describe 'changing capacity on initialization' do
-    docking_station = DockingStation.new([],25)
-      it 'test the new capacity' do
+
+    it 'test the new capacity' do
+      docking_station = DockingStation.new([],25)
         expect(docking_station.capacity).to eq 25
-      end
+      
     end
-  
+
+    it 'is broken?' do
+      bike = Bike.new
+      expect(subject.dock_bike({bike => false})).to eq [{bike => false}]
+    end
 end
