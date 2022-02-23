@@ -10,12 +10,8 @@ describe DockingStation do
  end
 
  it 'dock bike if dock is full?' do
-  bike_1 = Bike.new
-  bike_2 = Bike.new
-  subject.dock_bike(bike_1)
-  p subject.docked_bikes
-  p "----> here <-------"
-  expect{subject.dock_bike(bike_2)}.to raise_error("Dock is full")
+  20.times { subject.dock_bike(Bike.new) }
+  expect{subject.dock_bike(Bike.new)}.to raise_error("Dock is full")
   end
 
   it 'is the bike working?' do
